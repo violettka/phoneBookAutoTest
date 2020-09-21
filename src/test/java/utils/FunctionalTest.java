@@ -9,9 +9,7 @@ import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
@@ -25,6 +23,12 @@ import java.util.concurrent.TimeUnit;
 public class FunctionalTest {
     protected static WebDriver driver;
     protected final Logger logger = LogManager.getLogger(getClass());
+
+    String user = System.currentTimeMillis() + ".taran@gmail.com";
+    String password = "qatest01";
+    String baseURL = "http://localhost:4200/";
+    String signUpUrl = "http://localhost:4200/user/registration";
+
     @Rule
     public final TestRule watchman = new TestWatcher() {
         // This method gets invoked if the test fails for any reason:
@@ -59,4 +63,6 @@ public class FunctionalTest {
             e.printStackTrace();
         }
     }
+
+
 }
