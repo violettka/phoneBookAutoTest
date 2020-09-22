@@ -12,18 +12,18 @@ public class RegistrationPage extends PageObject {
 
 
 
-    @FindBy(xpath = "//*[@id=\"defaultRegisterFormEmail\"]")
-    private WebElement loginCreateField;
-    @FindBy(xpath = "/html/body/app-root/app-registration/form/div[2]/input")
+    @FindBy(id = "defaultRegisterFormEmail")
+    private WebElement loginField;
+    @FindBy(id = "defaultRegisterFormPass")
     private WebElement setPassword;
-    @FindBy(xpath = "/html/body/app-root/app-registration/form/div[3]/input")
+    @FindBy(id = "defaultRegisterFormConfPass")
     private WebElement confirmPassword;
-    @FindBy(xpath = "/html/body/app-root/app-registration/form/button")
+    @FindBy(id = "btnSignup")
     private WebElement signUpBtn;
 
     public RegistrationConfirmationPage register(String user, String password, String confPassword){
 
-        loginCreateField.sendKeys(user);
+        loginField.sendKeys(user);
         setPassword.sendKeys(password);
         confirmPassword.sendKeys(confPassword);
         signUpBtn.click();
