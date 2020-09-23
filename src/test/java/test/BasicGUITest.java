@@ -5,10 +5,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.RegistrationConfirmationPage;
-import pages.RegistrationPage;
+import pages.*;
 import utils.FunctionalTest;
 
 import static org.junit.Assert.*;
@@ -20,16 +17,17 @@ public class BasicGUITest extends FunctionalTest {
     MainPage mainPage;
     private String user = System.currentTimeMillis() + ".taran@gmail.com";
     private String wrongUser = System.currentTimeMillis() + ".tarangmail.com";
-    private String userExisted = "cepera_hawk@ukr.net";
-    private String passwordExisted = "Sonntag332440";
+    private String userExisted = "qatest.taran01@gmail.com";
+    private String passwordExisted = "QAtest01";
     private String shortPass = "1234567";
     private String longPass = "123456789012345678901";
-    String password = "qatest01";
-    String mainURL = "http://localhost:4200/";
-    String loginUrl = "http://localhost:4200/user/login";
-    String signUpUrl = "http://localhost:4200/user/registration";
+    private String password = "qatest01";
+    private String mainURL = "http://localhost:4200/";
+    private String loginUrl = "http://localhost:4200/user/login";
+    private String signUpUrl = "http://localhost:4200/user/registration";
     private String confPassword = password;
     private String confPasswordExisted = passwordExisted;
+    private String forgotPassUrl = "http://localhost:4200/user/forgot-password";
 
 
 //    @Before
@@ -172,14 +170,40 @@ public class BasicGUITest extends FunctionalTest {
         assertEquals("Sign in", driver.findElement(By.xpath("/html/body/app-root/app-login/form/p")).getText());
     }
 
-    @Test // test failed cause of actual result (Unauthorized didn't recognised)
+    @Test // test failed cause of actual result ("Unauthorized" didn't recognized or has no text)
     public void testIncorrectPassword(){
         driver.get(loginUrl);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(userExisted, passwordExisted + "1");
 
-        assertEquals("Unauthorized", driver.findElement(By.className("text-danger")).getText());
+        assertEquals("Unauthorized", driver.findElement(By.xpath("/html/body/app-root/app-login/form/div[3]")).getText());
         assertEquals(loginUrl, driver.getCurrentUrl());
+    }
+
+    //      FORGOT PASS PAGE
+
+    @Test
+    public void testRetrievePass(){
+        driver.get(loginUrl);
+        ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage(driver);
+        forgotPasswordPage.resetPass(userExisted);
+
+        assertEquals("Forgot Password", driver.findElement(By.xpath("/html/body/app-root/app-forgot-password/form/p")).getText());
+        assertEquals("Please check your email and reset your password", driver.findElement(By.xpath("/html/body/app-root/app-forgot-password/form/section/div/h4")).getText());
+        assertEquals(forgotPassUrl, driver.getCurrentUrl());
+
+    }
+
+    @Test
+
+    public void testRetrievePassWrongUser(){
+        driver.get(loginUrl);
+        ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage(driver);
+        forgotPasswordPage.resetPass(user);
+
+        assertEquals("Forgot Password", driver.findElement(By.xpath("/html/body/app-root/app-forgot-password/form/p")).getText());
+        assertEquals(forgotPassUrl, driver.getCurrentUrl());
+
     }
 
 
