@@ -21,5 +21,8 @@ public class PageObject {
                 .ignoring(StaleElementReferenceException.class);
         wait.withMessage(ERROR_START + element + ERROR_MIDDLE + seconds + ERROR_END);
         wait.until((ExpectedCondition<Boolean>) webDriver -> element.isDisplayed() == true);
+
     }
+
+
 }

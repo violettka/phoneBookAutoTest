@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.PageObject;
 
-public class MainPage extends PageObject {
-    public MainPage(WebDriver driver) {
+public class ContactsPage extends PageObject {
+    public ContactsPage(WebDriver driver) {
         super(driver);
     }
     @FindBy(xpath = "")

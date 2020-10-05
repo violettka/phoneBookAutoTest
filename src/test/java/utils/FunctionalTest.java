@@ -24,10 +24,9 @@ public class FunctionalTest {
     protected static WebDriver driver;
     protected final Logger logger = LogManager.getLogger(getClass());
 
-    String user = System.currentTimeMillis() + ".taran@gmail.com";
-    String password = "qatest01";
-    String baseURL = "http://localhost:4200/";
-    String signUpUrl = "http://localhost:4200/user/registration";
+    public String getUrl(){
+        return driver.getCurrentUrl();
+    }
 
     @Rule
     public final TestRule watchman = new TestWatcher() {
