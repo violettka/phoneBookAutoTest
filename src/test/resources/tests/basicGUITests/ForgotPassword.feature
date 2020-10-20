@@ -8,6 +8,7 @@ Feature: Forgot Password Feature
     When I click on the Login link
     Then I see Login button
 
-    Scenario: Reset user password
-      When I reset non-existing user password
-      Then I see validation message
+  Scenario: Reset user password
+    When I reset non-existing user password
+    Then I see validation message
+

@@ -7,6 +7,7 @@ public class Constants {
 
 //    ------------  Commons  ---------------
     public static String baseUrl = "http://dev.phonebook-1.telran-edu.de";
+    public static final String BASIC_API_URL = "http://localhost:8080/api/";
 
 //    ------------  EmailPage  ---------------
     @FindBy(id = "identifierId")
@@ -54,6 +55,8 @@ public class Constants {
     public static String registrationAPIUrl = baseUrl + "/api/user";
     public static String passForgotAPIUrl = baseUrl + "/api/user/password/recovery";
     public static String passRenewAPIUrl = baseUrl + "/api/user/password";
+    public static String contactAPIURL = baseUrl + "/api/contact";
+
 
 
 
