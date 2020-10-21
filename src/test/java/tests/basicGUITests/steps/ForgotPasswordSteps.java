@@ -2,15 +2,14 @@ package tests.basicGUITests.steps;
 
 
 import com.github.javafaker.Faker;
-import io.cucumber.java8.En;
+import cucumber.api.java8.En;
 import tests.basicGUITests.pages.ForgotPasswordPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static tests.basicGUITests.pages.ForgotPasswordPage.errorMsg;
 import static tests.basicGUITests.utils.Constants.forgotPassUrl;
-
-import static com.codeborne.selenide.Selenide.open;
 import static tests.basicGUITests.utils.Constants.nonExistingUserMessage;
 
 public class ForgotPasswordSteps implements En {

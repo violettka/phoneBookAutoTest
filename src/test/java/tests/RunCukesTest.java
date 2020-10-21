@@ -1,15 +1,19 @@
 package tests;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
+
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        publish = true,
         plugin = {"json:target/cucumber-report.json", "pretty"},
-        tags = "@api"
+        tags = "@test",
+        glue = {"src/test/java/tests"},
+        features = {"src/test/resources"}
+
 )
-public class RunCukesTest {
+public class RunCukesTest extends AbstractTestNGCucumberTests {
 }
 

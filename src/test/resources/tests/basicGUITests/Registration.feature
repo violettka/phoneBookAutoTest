@@ -1,6 +1,6 @@
 Feature: Registration
 
-  @registration
+  @test
   Scenario: Positive registration test
     Given I am on the Registration page
     When I create a user with the valid data

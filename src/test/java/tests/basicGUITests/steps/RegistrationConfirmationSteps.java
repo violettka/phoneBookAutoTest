@@ -1,7 +1,8 @@
 package tests.basicGUITests.steps;
 
-import io.cucumber.docstring.DocString;
-import io.cucumber.java8.En;
+
+import cucumber.api.java8.En;
+import gherkin.formatter.model.DocString;
 import tests.basicGUITests.pages.RegistrationConfirmationPage;
 
 
@@ -11,7 +12,7 @@ public class RegistrationConfirmationSteps implements En {
         RegistrationConfirmationPage regConfirm = new RegistrationConfirmationPage();
 
     Then("I see a confirmation message:", (DocString message) -> {
-        String msg = message.getContent();
+        String msg = message.getValue();
         regConfirm.assertMessage(msg);
     });
 }}

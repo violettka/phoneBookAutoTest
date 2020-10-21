@@ -1,10 +1,9 @@
 package tests.basicGUITests.steps;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java8.En;
+import cucumber.api.java8.En;
 import tests.basicGUITests.pages.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static tests.basicGUITests.utils.Constants.registrationUrl;
 
@@ -24,8 +23,6 @@ public class RegistrationSteps implements En {
             registrationPage.insertUserData(email, password, password);
         });
 
-        When("I click SignUp button", () -> {
-            registrationPage.clickSignUpBtn();
-        });
+        When("I click SignUp button", registrationPage::clickSignUpBtn);
     }
 }

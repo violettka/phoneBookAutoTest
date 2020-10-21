@@ -1,6 +1,6 @@
 package tests.basicGUITests.steps;
 
-import io.cucumber.java8.En;
+import cucumber.api.java8.En;
 import tests.basicGUITests.pages.LoginPage;
 
 public class LoginPageSteps implements En {
