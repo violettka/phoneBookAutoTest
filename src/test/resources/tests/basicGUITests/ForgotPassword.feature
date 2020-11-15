@@ -2,7 +2,7 @@ Feature: Forgot Password Feature
 
   Background:
     Given I am on the 'Forgot Password' page
-
+  @test
   Scenario: Login link exists on Forgot Password Page
 
     When I click on the Login link
